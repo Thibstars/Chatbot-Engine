@@ -11,6 +11,7 @@ class ChatbotEngineApplicationTests {
 
     @Test
     void contextLoads() {
+        // No assertions needed, just checking application startup
     }
 
 }
