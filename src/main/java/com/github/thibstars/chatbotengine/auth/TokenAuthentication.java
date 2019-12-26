@@ -19,8 +19,8 @@ public class TokenAuthentication implements Authentication {
         log.info("Authenticating with token...");
         if (StringUtils.isNotBlank(token)) {
             handler.authenticate(token);
+        } else {
+            throw new AuthenticationException("Authentication token was empty.");
         }
-
-        throw new AuthenticationException("Authentication token was empty.");
     }
 }
