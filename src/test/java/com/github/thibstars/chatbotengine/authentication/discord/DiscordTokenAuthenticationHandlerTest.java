@@ -22,7 +22,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 @DisplayNameGeneration(SentenceGenerator.class)
-public class DiscordTokenAuthenticationHandlerTest {
+class DiscordTokenAuthenticationHandlerTest {
 
     private DiscordTokenAuthenticationHandler handler;
     private JDABuilder jdaBuilder;
