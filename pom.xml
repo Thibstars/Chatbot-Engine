@@ -26,6 +26,8 @@
         <dbl.version>2.0.1</dbl.version>
 
         <mockito.junit.version>3.2.0</mockito.junit.version>
+
+        <maven.enforcer.plugin.version>3.0.0-M3</maven.enforcer.plugin.version>
     </properties>
 
     <dependencies>
@@ -95,6 +97,30 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven.enforcer.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <banDuplicatePomDependencyVersions/>
+                                <requireProperty>
+                                    <property>project.version</property>
+                                    <message>"Project version must be specified."</message>
+                                    <regex>.*(\d|-SNAPSHOT)$</regex>
+                                    <regexMessage>"Project version must end in a number or -SNAPSHOT."</regexMessage>
+                                </requireProperty>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
