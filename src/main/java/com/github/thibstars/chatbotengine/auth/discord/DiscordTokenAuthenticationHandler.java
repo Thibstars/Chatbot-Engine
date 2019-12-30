@@ -22,6 +22,7 @@ package com.github.thibstars.chatbotengine.auth.discord;
 import com.github.thibstars.chatbotengine.auth.AuthenticationException;
 import com.github.thibstars.chatbotengine.auth.TokenAuthenticationHandler;
 import javax.security.auth.login.LoginException;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
@@ -31,6 +32,7 @@ import org.springframework.stereotype.Component;
  * @author Thibault Helsmoortel
  */
 @Slf4j
+@Data
 @Component
 public class DiscordTokenAuthenticationHandler implements TokenAuthenticationHandler {
 
