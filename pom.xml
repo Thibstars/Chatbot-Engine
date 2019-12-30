@@ -15,7 +15,7 @@
     <description>Universal chatbot engine.</description>
 
     <properties>
-        <java.version>13</java.version>
+        <java.version>12</java.version>
 
         <commons.lang.version>3.9</commons.lang.version>
         <picocli.version>4.1.4</picocli.version>
