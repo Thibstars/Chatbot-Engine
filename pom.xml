@@ -15,7 +15,10 @@
     <description>Universal chatbot engine.</description>
 
     <properties>
-        <java.version>12</java.version>
+        <java.version>13</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <commons.lang.version>3.9</commons.lang.version>
         <picocli.version>4.1.4</picocli.version>
@@ -92,14 +95,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <target>${java.version}</target>
-                </configuration>
             </plugin>
         </plugins>
     </build>
