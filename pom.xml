@@ -18,6 +18,7 @@
         <java.version>13</java.version>
 
         <commons.lang.version>3.9</commons.lang.version>
+        <picocli.version>4.1.4</picocli.version>
         <jda.version>4.1.0_81</jda.version>
         <dbl.version>2.0.1</dbl.version>
 
@@ -33,6 +34,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons.lang.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+            <version>${picocli.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
