@@ -21,7 +21,6 @@ package com.github.thibstars.chatbotengine.auth.discord.config;
 
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthentication;
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthenticationHandler;
-import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +29,6 @@ import org.springframework.context.annotation.Configuration;
  * @author Thibault Helsmoortel
  */
 @Configuration
-@AllArgsConstructor
 public class DiscordAuthAutoConfiguration {
 
     @Bean
