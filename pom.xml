@@ -21,7 +21,7 @@
         <jda.version>4.1.0_88</jda.version>
         <dbl.version>2.0.1</dbl.version>
 
-        <mockito.junit.version>3.2.0</mockito.junit.version>
+        <mockito.junit.version>3.2.4</mockito.junit.version>
 
         <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
         <maven.failsafe.plugin.version>3.0.0-M4</maven.failsafe.plugin.version>
