@@ -17,7 +17,7 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.converters;
+package com.github.thibstars.chatbotengine.cli.converters;
 
 import org.apache.commons.lang3.StringUtils;
 import picocli.CommandLine.ITypeConverter;

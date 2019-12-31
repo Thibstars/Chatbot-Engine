@@ -17,7 +17,7 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.converters;
+package com.github.thibstars.chatbotengine.cli.converters;
 
 import com.github.thibstars.chatbotengine.testutils.SentenceGenerator;
 import org.apache.commons.lang3.StringUtils;
