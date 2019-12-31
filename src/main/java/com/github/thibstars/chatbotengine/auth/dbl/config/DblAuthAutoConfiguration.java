@@ -17,10 +17,10 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.auth.discord.config;
+package com.github.thibstars.chatbotengine.auth.dbl.config;
 
-import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthentication;
-import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthenticationHandler;
+import com.github.thibstars.chatbotengine.auth.dbl.DblTokenAuthentication;
+import com.github.thibstars.chatbotengine.auth.dbl.DblTokenAuthenticationHandler;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,12 +29,12 @@ import org.springframework.context.annotation.Configuration;
  * @author Thibault Helsmoortel
  */
 @Configuration
-public class DiscordAuthAutoConfiguration {
+public class DblAuthAutoConfiguration {
 
     @Bean
-    @ConditionalOnMissingBean(DiscordTokenAuthentication.class)
-    public DiscordTokenAuthentication discordTokenAuthentication() {
-        return new DiscordTokenAuthentication(new DiscordTokenAuthenticationHandler());
+    @ConditionalOnMissingBean(DblTokenAuthentication.class)
+    public DblTokenAuthentication dblTokenAuthentication() {
+        return new DblTokenAuthentication(new DblTokenAuthenticationHandler());
     }
 
 }
