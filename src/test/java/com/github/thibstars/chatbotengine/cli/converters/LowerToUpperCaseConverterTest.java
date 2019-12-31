@@ -39,7 +39,7 @@ class LowerToUpperCaseConverterTest {
 
     @BeforeEach
     void setUp() {
-        this.lowerToUpperCaseConverter = new LowerToUpperCaseConverter();
+        lowerToUpperCaseConverter = new LowerToUpperCaseConverter();
     }
 
     @ParameterizedTest
