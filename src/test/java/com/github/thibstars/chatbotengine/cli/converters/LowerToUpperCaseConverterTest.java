@@ -23,7 +23,6 @@ import com.github.thibstars.chatbotengine.testutils.SentenceGenerator;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -43,7 +42,6 @@ class LowerToUpperCaseConverterTest {
         this.lowerToUpperCaseConverter = new LowerToUpperCaseConverter();
     }
 
-    @DisplayName("Should convert lower case String.")
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "    ", "alllowercase", "ALLUPPERCASE", "mixedVALUE", "v4lu3"})
     void shouldConvertLowerCaseString(String inputToConvert) {
