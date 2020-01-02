@@ -57,6 +57,7 @@ public class DiscordTokenAuthenticationHandler implements TokenAuthenticationHan
         } catch (LoginException e) {
             throw new AuthenticationException("Discord token authentication failed.");
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             log.error(e.getMessage(), e);
         }
     }

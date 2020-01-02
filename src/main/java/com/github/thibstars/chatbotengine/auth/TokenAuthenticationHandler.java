@@ -25,6 +25,6 @@ package com.github.thibstars.chatbotengine.auth;
 @FunctionalInterface
 public interface TokenAuthenticationHandler {
 
-    void authenticate(String token) throws AuthenticationException;
+    void authenticate(String token);
 
 }
