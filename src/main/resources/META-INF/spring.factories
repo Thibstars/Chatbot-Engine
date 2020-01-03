@@ -3,4 +3,5 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.github.thibstars.chatbotengine.auth.discord.config.DiscordAuthAutoConfiguration,\
 com.github.thibstars.chatbotengine.provider.discord.config.DiscordProviderAutoConfiguration,\
 com.github.thibstars.chatbotengine.cli.commands.CommandsAutoConfiguration, \
-com.github.thibstars.chatbotengine.auth.dbl.config.DblAuthAutoConfiguration
+com.github.thibstars.chatbotengine.auth.dbl.config.DblAuthAutoConfiguration, \
+com.github.thibstars.chatbotengine.cli.io.discord.DiscordCliAutoConfiguration
