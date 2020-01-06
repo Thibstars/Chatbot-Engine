@@ -19,11 +19,14 @@
 
 package com.github.thibstars.chatbotengine.cli.commands;
 
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import picocli.CommandLine;
@@ -33,9 +36,11 @@ import picocli.CommandLine;
  */
 @Configuration
 @AllArgsConstructor
+@Slf4j
 public class CommandsAutoConfiguration {
 
     private final ListableBeanFactory listableBeanFactory;
+    private final PrintWriter printWriter;
 
     @Bean
     public List<BaseCommand> commands() {
@@ -45,5 +50,13 @@ public class CommandsAutoConfiguration {
             .filter(command -> command instanceof BaseCommand)
             .map(command -> (BaseCommand) command)
             .collect(Collectors.toList());
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(CommandExecutor.class)
+    public CommandExecutor commandExecutor() {
+        List<BaseCommand> commands = commands();
+        log.info("Registering command executor with {} commands.", commands.size());
+        return new CommandExecutor(commands, printWriter);
     }
 }

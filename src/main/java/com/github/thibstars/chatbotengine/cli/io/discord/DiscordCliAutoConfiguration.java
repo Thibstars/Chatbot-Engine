@@ -19,6 +19,7 @@
 
 package com.github.thibstars.chatbotengine.cli.io.discord;
 
+import java.io.PrintWriter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +34,12 @@ public class DiscordCliAutoConfiguration {
     @ConditionalOnMissingBean(MessageChannelOutputStream.class)
     public MessageChannelOutputStream messageChannelOutputStream() {
         return new MessageChannelOutputStream();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(PrintWriter.class)
+    public PrintWriter discordPrintWriter() {
+        return new PrintWriter(messageChannelOutputStream());
     }
 
 }
