@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Thibault Helsmoortel.
+ * Copyright (c) 2020 Thibault Helsmoortel.
  *
  * This file is part of Chatbot Engine.
  *
@@ -17,8 +17,10 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.cli.commands;
+package com.github.thibstars.chatbotengine.cli.commands.config;
 
+import com.github.thibstars.chatbotengine.cli.commands.BaseCommand;
+import com.github.thibstars.chatbotengine.cli.commands.CommandExecutor;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;

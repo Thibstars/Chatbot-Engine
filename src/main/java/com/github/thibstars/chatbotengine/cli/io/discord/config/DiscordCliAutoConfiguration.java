@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Thibault Helsmoortel.
+ * Copyright (c) 2020 Thibault Helsmoortel.
  *
  * This file is part of Chatbot Engine.
  *
@@ -17,8 +17,9 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.cli.io.discord;
+package com.github.thibstars.chatbotengine.cli.io.discord.config;
 
+import com.github.thibstars.chatbotengine.cli.io.discord.MessageChannelOutputStream;
 import java.io.PrintWriter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
