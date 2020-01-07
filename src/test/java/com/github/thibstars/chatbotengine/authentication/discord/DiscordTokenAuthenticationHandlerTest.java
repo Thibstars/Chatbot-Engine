@@ -66,4 +66,13 @@ class DiscordTokenAuthenticationHandlerTest {
         when(jdaBuilder.build()).thenThrow(new LoginException("Test Exception!"));
         Assertions.assertThrows(AuthenticationException.class, () -> handler.authenticate(RandomStringUtils.randomAscii(10)), "Authentication should throw exception.");
     }
+
+    @Test
+    void shouldReinterruptThread() throws LoginException, InterruptedException {
+        JDA jda = mock(JDA.class);
+        when(jdaBuilder.build()).thenReturn(jda);
+        when(jda.awaitReady()).thenThrow(InterruptedException.class);
+        handler.authenticate(RandomStringUtils.randomAscii(10));
+        Assertions.assertTrue(Thread.currentThread().isInterrupted(), "Current thread should be reinterrupted.");
+    }
 }
