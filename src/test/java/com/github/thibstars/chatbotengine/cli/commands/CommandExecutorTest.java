@@ -52,6 +52,9 @@ class CommandExecutorTest {
     @Mock
     private Runnable notRecognizedCallback;
 
+    @Mock
+    private Runnable failCallback;
+
     @BeforeEach
     public void beforeEach() {
         testCommand.reset();
@@ -62,7 +65,7 @@ class CommandExecutorTest {
         String commandName = testCommand.getClass().getAnnotation(Command.class).name();
 
         int priorExecutions = testCommand.getExecutions();
-        boolean executed = commandExecutor.tryExecute(messageReceivedEvent, commandName, notRecognizedCallback);
+        boolean executed = commandExecutor.tryExecute(messageReceivedEvent, commandName, notRecognizedCallback, failCallback);
 
         verifyNoInteractions(notRecognizedCallback);
 
@@ -76,7 +79,7 @@ class CommandExecutorTest {
         String commandName = testCommand.getClass().getAnnotation(Command.class).name() + " -t";
 
         int priorExecutions = testCommand.getExecutions();
-        boolean executed = commandExecutor.tryExecute(messageReceivedEvent, commandName, notRecognizedCallback);
+        boolean executed = commandExecutor.tryExecute(messageReceivedEvent, commandName, notRecognizedCallback, failCallback);
 
         verifyNoInteractions(notRecognizedCallback);
 
@@ -90,10 +93,23 @@ class CommandExecutorTest {
     void shouldNotExecuteCommand() {
         String commandName = "someUnavailableCommand";
 
-        boolean executed = commandExecutor.tryExecute(messageReceivedEvent, commandName, notRecognizedCallback);
+        boolean executed = commandExecutor.tryExecute(messageReceivedEvent, commandName, notRecognizedCallback, failCallback);
 
         // The executor should trigger a call to the notRecognizedCallback
         verify(notRecognizedCallback).run();
+
+        Assertions.assertFalse(executed, "Command should not be executed.");
+    }
+
+    @Test
+    void shouldHandleFailure() {
+        String commandName = "someUnavailableCommand";
+
+        boolean executed = commandExecutor.tryExecute(messageReceivedEvent, commandName, () -> {
+            throw new IllegalArgumentException("Test Exception!");
+        }, failCallback);
+
+        verify(failCallback).run();
 
         Assertions.assertFalse(executed, "Command should not be executed.");
     }

@@ -50,41 +50,47 @@ public class CommandExecutor {
      * @param context the context to supply to the command
      * @param commandMessage the command message (stripped from its prefix)
      * @param notRecognizedCallback callback to run when the command wasn't recognized
+     * @param failCallback callback to run when the command failed to run
      * @return true if the command was executed, false if otherwise
      */
-    public boolean tryExecute(Object context, String commandMessage, Runnable notRecognizedCallback) {
+    public boolean tryExecute(Object context, String commandMessage, Runnable notRecognizedCallback, Runnable failCallback) {
         AtomicBoolean commandRecognised = new AtomicBoolean(false);
 
-        if (StringUtils.isNotBlank(commandMessage)) {
-            baseCommands.forEach(command -> {
-                Command commandType = command.getClass().getAnnotation(Command.class);
-                String commandName = commandType.name();
+        try {
+            if (StringUtils.isNotBlank(commandMessage)) {
+                baseCommands.forEach(command -> {
+                    Command commandType = command.getClass().getAnnotation(Command.class);
+                    String commandName = commandType.name();
 
-                if (commandMessage.split(" ")[0].equals(commandName)) {
-                    commandRecognised.set(true);
-                    command.setContext(context);
+                    if (commandMessage.split(" ")[0].equals(commandName)) {
+                        commandRecognised.set(true);
+                        command.setContext(context);
 
-                    String args = commandMessage.substring(commandMessage.indexOf(commandType.name()) + commandType.name().length()).trim();
+                        String args = commandMessage.substring(commandMessage.indexOf(commandType.name()) + commandType.name().length()).trim();
 
-                    CommandLine commandLine = new CommandLine(command);
-                    commandLine.setOut(printWriter);
-                    commandLine.setErr(printWriter);
-                    commandLine.setColorScheme(new ColorScheme.Builder().ansi(Ansi.OFF).build());
+                        CommandLine commandLine = new CommandLine(command);
+                        commandLine.setOut(printWriter);
+                        commandLine.setErr(printWriter);
+                        commandLine.setColorScheme(new ColorScheme.Builder().ansi(Ansi.OFF).build());
 
-                    if (StringUtils.isNotBlank(args)) {
-                        commandLine.execute(args.split(" "));
-                    } else {
-                        commandLine.execute();
+                        if (StringUtils.isNotBlank(args)) {
+                            commandLine.execute(args.split(" "));
+                        } else {
+                            commandLine.execute();
+                        }
                     }
-                }
-            });
+                });
 
-            if (commandRecognised.get()) {
-                log.debug("Executed command: {}.", commandMessage);
-            } else {
-                log.debug("Command not recognized: {}.", commandMessage);
-                notRecognizedCallback.run();
+                if (commandRecognised.get()) {
+                    log.debug("Executed command: {}.", commandMessage);
+                } else {
+                    log.debug("Command not recognized: {}.", commandMessage);
+                    notRecognizedCallback.run();
+                }
             }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            failCallback.run();
         }
 
         return commandRecognised.get();
