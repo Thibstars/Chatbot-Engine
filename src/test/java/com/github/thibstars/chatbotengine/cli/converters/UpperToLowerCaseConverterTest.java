@@ -44,7 +44,7 @@ class UpperToLowerCaseConverterTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "    ", "alllowercase", "ALLUPPERCASE", "mixedVALUE", "v4lu3"})
-    void shouldConvertLowerCaseString(String inputToConvert) {
+    void shouldConvertToLowerCaseString(String inputToConvert) {
         String converted = upperToLowerCaseConverter.convert(inputToConvert);
 
         if (StringUtils.isNotBlank(inputToConvert)) {
