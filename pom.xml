@@ -5,7 +5,7 @@
 
     <groupId>com.github.thibstars</groupId>
     <artifactId>chatbot-engine</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
 
     <name>chatbot-engine</name>
     <description>Universal chatbot engine.</description>
