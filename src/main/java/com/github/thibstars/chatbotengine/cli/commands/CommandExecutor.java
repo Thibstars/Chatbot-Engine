@@ -76,7 +76,7 @@ public class CommandExecutor {
                         commandLine.setColorScheme(new ColorScheme.Builder().ansi(Ansi.OFF).build());
 
                         if (StringUtils.isNotBlank(args)) {
-                            commandLine.execute(args.split(" "));
+                            commandLine.execute(args.split(SPACE));
                         } else {
                             commandLine.execute();
                         }
