@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Thibault Helsmoortel.
+ * Copyright (c) 2020 Thibault Helsmoortel.
  *
  * This file is part of Chatbot Engine.
  *
@@ -33,22 +33,23 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 @DisplayNameGeneration(SentenceGenerator.class)
-class LowerToUpperCaseConverterTest {
+class UpperToLowerCaseConverterTest {
 
-    private LowerToUpperCaseConverter lowerToUpperCaseConverter;
+    private UpperToLowerCaseConverter upperToLowerCaseConverter;
 
     @BeforeEach
     void setUp() {
-        lowerToUpperCaseConverter = new LowerToUpperCaseConverter();
+        upperToLowerCaseConverter = new UpperToLowerCaseConverter();
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "    ", "alllowercase", "ALLUPPERCASE", "mixedVALUE", "v4lu3"})
-    void shouldConvertToUppercase(String inputToConvert) {
-        String converted = lowerToUpperCaseConverter.convert(inputToConvert);
+    void shouldConvertToLowerCaseString(String inputToConvert) {
+        String converted = upperToLowerCaseConverter.convert(inputToConvert);
 
         if (StringUtils.isNotBlank(inputToConvert)) {
-            Assertions.assertTrue(StringUtils.isNotBlank(converted) && converted.equalsIgnoreCase(inputToConvert), "String should be converted correctly.");
+            Assertions
+                .assertTrue(StringUtils.isNotBlank(converted) && converted.equalsIgnoreCase(inputToConvert), "String should be converted correctly.");
         } else {
             Assertions.assertEquals(inputToConvert, converted, "Null, empty or blank input must remain the same.");
         }

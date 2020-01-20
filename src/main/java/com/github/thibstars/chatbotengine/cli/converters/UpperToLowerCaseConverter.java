@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Thibault Helsmoortel.
+ * Copyright (c) 2020 Thibault Helsmoortel.
  *
  * This file is part of Chatbot Engine.
  *
@@ -23,18 +23,19 @@ import org.apache.commons.lang3.StringUtils;
 import picocli.CommandLine.ITypeConverter;
 
 /**
- * Converter for lower- to uppercase Strings.
+ * Converter for upper- to lowercase Strings.
  *
  * @author Thibault Helsmoortel
  */
-public class LowerToUpperCaseConverter implements ITypeConverter<String> {
+public class UpperToLowerCaseConverter implements ITypeConverter<String> {
 
     @Override
     public String convert(String value) {
         if (StringUtils.isNotBlank(value)) {
-            return value.toUpperCase();
+            return value.toLowerCase();
         }
 
         return value;
     }
+
 }
