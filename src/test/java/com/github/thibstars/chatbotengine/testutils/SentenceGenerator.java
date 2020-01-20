@@ -29,8 +29,8 @@ import org.junit.jupiter.api.DisplayNameGenerator;
  */
 public class SentenceGenerator extends DisplayNameGenerator.Standard {
 
-    public static final String ELLIPSIS = "...";
-    public static final char SPACE = ' ';
+    private static final String ELLIPSIS = "...";
+    private static final char SPACE = ' ';
 
     @Override
     public String generateDisplayNameForClass(Class<?> testClass) {

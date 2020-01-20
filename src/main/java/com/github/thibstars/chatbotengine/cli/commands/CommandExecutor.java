@@ -19,6 +19,8 @@
 
 package com.github.thibstars.chatbotengine.cli.commands;
 
+import static org.apache.commons.lang3.StringUtils.SPACE;
+
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -62,7 +64,7 @@ public class CommandExecutor {
                     Command commandType = command.getClass().getAnnotation(Command.class);
                     String commandName = commandType.name();
 
-                    if (commandMessage.split(" ")[0].equals(commandName)) {
+                    if (commandMessage.split(SPACE)[0].equals(commandName)) {
                         commandRecognised.set(true);
                         command.setContext(context);
 
