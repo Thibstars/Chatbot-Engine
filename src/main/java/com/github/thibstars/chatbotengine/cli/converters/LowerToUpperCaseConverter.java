@@ -23,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 import picocli.CommandLine.ITypeConverter;
 
 /**
- * Converter for lower- to uppercase Strings
+ * Converter for lower- to uppercase Strings.
  *
  * @author Thibault Helsmoortel
  */
