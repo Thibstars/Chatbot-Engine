@@ -29,6 +29,9 @@ import org.junit.jupiter.api.DisplayNameGenerator;
  */
 public class SentenceGenerator extends DisplayNameGenerator.Standard {
 
+    public static final String ELLIPSIS = "...";
+    public static final char SPACE = ' ';
+
     @Override
     public String generateDisplayNameForClass(Class<?> testClass) {
         return replaceCamelCase(super.generateDisplayNameForClass(testClass));
@@ -36,7 +39,7 @@ public class SentenceGenerator extends DisplayNameGenerator.Standard {
 
     @Override
     public String generateDisplayNameForNestedClass(Class<?> nestedClass) {
-        return replaceCamelCase(super.generateDisplayNameForNestedClass(nestedClass) + "...");
+        return replaceCamelCase(super.generateDisplayNameForNestedClass(nestedClass) + ELLIPSIS);
     }
 
     @Override
@@ -50,7 +53,7 @@ public class SentenceGenerator extends DisplayNameGenerator.Standard {
         result.append(camelCase.charAt(0));
         for (int i = 1; i < camelCase.length(); i++) {
             if (Character.isUpperCase(camelCase.charAt(i))) {
-                result.append(' ');
+                result.append(SPACE);
                 result.append(Character.toLowerCase(camelCase.charAt(i)));
             } else {
                 result.append(camelCase.charAt(i));
