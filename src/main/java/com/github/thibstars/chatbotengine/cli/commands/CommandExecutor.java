@@ -30,6 +30,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
+import picocli.CommandLine.ExitCode;
 import picocli.CommandLine.Help.Ansi;
 import picocli.CommandLine.Help.ColorScheme;
 
@@ -74,6 +75,11 @@ public class CommandExecutor {
                         commandLine.setOut(printWriter);
                         commandLine.setErr(printWriter);
                         commandLine.setColorScheme(new ColorScheme.Builder().ansi(Ansi.OFF).build());
+                        commandLine.setExecutionExceptionHandler((ex, cmdLine, parseResult) -> {
+                            failCallback.run();
+
+                            return ExitCode.OK;
+                        });
 
                         if (StringUtils.isNotBlank(args)) {
                             commandLine.execute(args.split(SPACE));
