@@ -17,14 +17,13 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.authentication.discord;
+package com.github.thibstars.chatbotengine.auth.discord;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.github.thibstars.chatbotengine.auth.AuthenticationException;
-import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthenticationHandler;
 import com.github.thibstars.chatbotengine.testutils.SentenceGenerator;
 import javax.security.auth.login.LoginException;
 import net.dv8tion.jda.api.JDA;
