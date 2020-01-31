@@ -17,7 +17,7 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.authentication;
+package com.github.thibstars.chatbotengine.auth;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -25,9 +25,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
-import com.github.thibstars.chatbotengine.auth.AuthenticationException;
-import com.github.thibstars.chatbotengine.auth.TokenAuthentication;
-import com.github.thibstars.chatbotengine.auth.TokenAuthenticationHandler;
 import com.github.thibstars.chatbotengine.testutils.SentenceGenerator;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;

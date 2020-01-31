@@ -17,13 +17,12 @@
  * along with Chatbot Engine.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.thibstars.chatbotengine.authentication.dbl;
+package com.github.thibstars.chatbotengine.auth.dbl;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.github.thibstars.chatbotengine.auth.AuthenticationException;
-import com.github.thibstars.chatbotengine.auth.dbl.DblTokenAuthenticationHandler;
 import com.github.thibstars.chatbotengine.testutils.SentenceGenerator;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.SelfUser;
