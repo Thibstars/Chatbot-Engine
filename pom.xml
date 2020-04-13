@@ -20,7 +20,7 @@
 
         <commons.lang.version>3.9</commons.lang.version>
         <picocli.version>4.2.0</picocli.version>
-        <jda.version>4.1.1_110</jda.version>
+        <jda.version>4.1.1_136</jda.version>
         <dbl.version>2.0.1</dbl.version>
 
         <mockito.junit.version>3.3.1</mockito.junit.version>
