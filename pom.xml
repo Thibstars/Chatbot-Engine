@@ -19,7 +19,7 @@
         <spring.version>2.2.5.RELEASE</spring.version>
 
         <commons.lang.version>3.9</commons.lang.version>
-        <picocli.version>4.2.0</picocli.version>
+        <picocli.version>4.3.2</picocli.version>
         <jda.version>4.1.1_110</jda.version>
         <dbl.version>2.0.1</dbl.version>
 
