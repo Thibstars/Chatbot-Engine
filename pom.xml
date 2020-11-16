@@ -16,7 +16,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <spring.version>2.2.5.RELEASE</spring.version>
+        <spring.version>2.4.0</spring.version>
 
         <commons.lang.version>3.9</commons.lang.version>
         <picocli.version>4.2.0</picocli.version>
